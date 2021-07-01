@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "projeto-mobile-1ea25": {
+      "hosting": {
+        "app": [
+          "projeto-mobile-1ea25"
+        ]
+      }
+    }
+  }
+}
