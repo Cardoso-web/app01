@@ -1,10 +1,11 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-img src="assets/logo01.png" alt="Meu App 01" class="logotipo"></ion-img>
-          <ion-list-header>Meu App 01</ion-list-header>
+    <ion-menu  contentId="main-content" type="overlay">
+      <ion-content >
+
+        <ion-list id="inbox-list" >
+          <ion-img src="assets/emm.jpg" alt="Meu App 01" class="logotipo"></ion-img>
+          <ion-list-header>Emprego 24hrs</ion-list-header>
           <ion-note></ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
@@ -16,7 +17,7 @@
           </ion-menu-toggle>
         </ion-list>
 
-        <ion-list>
+        <ion-list >
           <ion-menu-toggle auto-hide="false">
             <ion-item *ngIf="auth.user | async as user; else showLogin" routerLink="/profile">
               <ion-thumbnail class="ion-margin-end">
@@ -31,7 +32,7 @@
             <ng-template #showLogin>
               <ion-item routerLink="/login">
                 <ion-thumbnail class="ion-margin-end">
-                  <img src="assets/user.png" alt="Logue-se">
+                  <img src="assets/jj.png" alt="Logue-se">
                 </ion-thumbnail>
                 Entrar / Login
               </ion-item>
@@ -50,3 +51,4 @@
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
+

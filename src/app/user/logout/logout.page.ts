@@ -28,4 +28,3 @@ export class LogoutPage implements OnInit {
   }
 
 }
-

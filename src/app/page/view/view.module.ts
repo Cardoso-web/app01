@@ -18,3 +18,4 @@ import { ViewPage } from './view.page';
   declarations: [ViewPage]
 })
 export class ViewPageModule {}
+

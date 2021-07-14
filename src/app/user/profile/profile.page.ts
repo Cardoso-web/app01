@@ -8,10 +8,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  constructor(public auth: AngularFireAuth) {}
 
-  constructor(public auth: AngularFireAuth) { }
-
-  ngOnInit() { }
+  ngOnInit() {}
 
   // Abre perfil do usuário no Google em outra aba
   goProfile() {
@@ -21,5 +20,4 @@ export class ProfilePage implements OnInit {
     // location.href = 'https://myaccount.google.com/';
     return false;
   }
-
 }

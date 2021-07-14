@@ -3,9 +3,8 @@ import { Component, OnInit } from '@angular/core';
 // Importa dependênias
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
-
-import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,17 +12,14 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   constructor(
+    // Injeta dependências
+    public auth: AngularFireAuth,
+    public alertController: AlertController,
+    public router: Router
+  ) {}
 
-     // Injeta dependências
-     public auth: AngularFireAuth,
-     public alertController: AlertController,
-     public router: Router
-  ) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   login() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
@@ -33,23 +29,22 @@ export class LoginPage implements OnInit {
     .catch((error) => {
       console.error('Erro de login: ' + error);
     });
-}
+  }
 
-async presentAlertConfirm(userName: string) {
-  const alert = await this.alertController.create({
-    header: `Olá ${userName}!`,
-    message: 'Você já pode usar todos os recursos do aplicativo!',
-    buttons: [
-      {
-        text: 'Ok',
-        handler: () => {
-          this.router.navigate(['/home']);
+  async presentAlertConfirm(userName: string) {
+    const alert = await this.alertController.create({
+      header: `Olá ${userName}!`,
+      message: 'Você já pode usar todos os recursos do aplicativo!',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            this.router.navigate(['/home']);
+          }
         }
-      }
-    ]
-  });
+      ]
+    });
 
-  await alert.present();
-}
-
+    await alert.present();
+  }
 }
